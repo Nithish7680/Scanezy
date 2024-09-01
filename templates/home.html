@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Barcode Scanner</title>
+    <style>
+        :root {
+            --main-color: rgb(68, 80, 111);
+            --text-color: #ffffff;
+            --accent-color: #ffd700;
+            --border-width: 2px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: rgb(22 21 26);
+            color: var(--text-color);
+        }
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 90%;
+            width: 400px;
+        }
+        h1 {
+            margin-bottom: 1rem;
+            font-size: 2.5em;
+        }
+        p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--main-color);
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border: none;
+        }
+        .btn:hover {
+            background-color: #ffeA00;
+            transform: translateY(-2px);
+        }
+        .logo {
+            height: 100px;
+            margin-bottom: 2rem;
+            background-color: white;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 1.5rem;
+                width: 90%;
+            }
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="/static/images/Scanezy-logo.png" alt="Company Logo" class="logo">
+        <h1>Welcome to Barcode Scanner</h1>
+        <p>Simplify your inventory management with our easy-to-use barcode scanning platform. Streamline your processes and boost efficiency today!</p>
+        <a href="#" class="btn">Get Started</a>
+    </div>
+</body>
+</html>
