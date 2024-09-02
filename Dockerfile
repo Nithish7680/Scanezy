@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
-RUN RUN git clone --branch master https://github.com/Nithish7680/Scanezy.git
+RUN git clone --branch master https://github.com/Nithish7680/Scanezy.git
 RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8000
 RUN chmod +x /app/startup.sh
