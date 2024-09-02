@@ -90,13 +90,13 @@ def extract_text():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-
-if __name__ == "__main__":
-    app.run(port = 8000, host = "0.0.0.0")
-
-
 def preprocess_image(image):
     gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
     blurred = cv.GaussianBlur(gray, (5, 5), 0)
     resized = cv.resize(blurred, None, fx=1.0, fy=1.0, interpolation=cv.INTER_CUBIC)
     return resized
+
+if __name__ == "__main__":
+    app.run(port = 8000, host = "0.0.0.0", debug=False)
+
+
