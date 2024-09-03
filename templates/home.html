@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Barcode Scanner</title>
+    <title>Welcome to Scanezy</title>
     <style>
         :root {
             --main-color: rgb(68, 80, 111);
             --text-color: #ffffff;
             --accent-color: #ffd700;
             --border-width: 2px;
+            --scan-line-color: rgba(255, 255, 255, 0.8);
+            --scan-line-height: 2px;
+            --scan-line-speed: 1.5s;
         }
         body {
             font-family: Arial, sans-serif;
@@ -23,14 +26,15 @@
             color: var(--text-color);
         }
         .container {
+            position: relative;
             text-align: center;
-            padding: 2rem;
-            max-width: 90%;
-            width: 400px;
+            padding: 1.5rem;
+            width: 90%;
+            overflow: hidden;
         }
         h1 {
             margin-bottom: 1rem;
-            font-size: 2.5em;
+            font-size: 2em;
         }
         p {
             margin-bottom: 2rem;
@@ -59,13 +63,40 @@
             padding: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        @media (max-width: 600px) {
+        .barcode {
+            width: 100%;
+            max-width: 400px;
+            top: 10px;
+            margin: 0 auto;
+            position: relative;
+            display: inline-block;
+        }
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--scan-line-height);
+            background-color: var(--scan-line-color);
+            animation: scan var(--scan-line-speed) linear infinite;
+            pointer-events: none; /* Ensure it doesn't interfere with interactions */
+        }
+        @keyframes scan {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(5000%);
+            }
+        }
+        @media (min-width: 600px) {
             .container {
-                padding: 1.5rem;
-                width: 90%;
+                max-width: 90%;
+                width: 400px;
+                padding: 2rem;
             }
             h1 {
-                font-size: 2em;
+                font-size: 2.5em;
             }
         }
     </style>
@@ -73,9 +104,25 @@
 <body>
     <div class="container">
         <img src="/static/images/Scanezy-logo.png" alt="Company Logo" class="logo">
-        <h1>Welcome to Barcode Scanner</h1>
-        <p>Simplify your inventory management with our easy-to-use barcode scanning platform. Streamline your processes and boost efficiency today!</p>
+        <h1>Welcome to Scanezy</h1>
+        <div class="barcode">
+            <img src="/static/images/barcode.gif" alt="Barcode">
+            <div class="scan-line"></div>
+        </div>
+        
+        <p>Scan a product to add it to your inventory!</p>
         <a href="#" class="btn">Get Started</a>
+
     </div>
+    <script>
+        // Add animation to the scan line
+        const scanLine = document.querySelector('.scan-line');
+        scanLine.style.animationPlayState = 'running';
+
+        // Add a slight delay to the animation to make it more realistic
+        setTimeout(() => {
+            scanLine.style.animationDelay = '0.5s';
+        }, 1000);
+    </script>
 </body>
 </html>
